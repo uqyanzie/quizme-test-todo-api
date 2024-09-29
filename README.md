@@ -5,6 +5,12 @@ Author : Uqyanzie Bintang
 ## Description
 This is a simple todo app that allows users to create, read, update, and delete todo items. The app is built using Node.js, Express, and MongoDB.
 
+## Features
+1. User registration & authentication with email OTP verification
+2. Create, read, update, and delete todo items
+3. Todo items are private to the user who created them, retrieved using the user's JWT
+4. Todo items filter by done status, search by title, and pagination
+
 ## Installation
 1. Clone the repository: `git clone https://github.com/your-repo.git`
 2. Install dependencies: `npm install`
