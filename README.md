@@ -12,7 +12,7 @@ This is a simple todo app that allows users to create, read, update, and delete 
 4. Todo items filter by done status, search by title, and pagination
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/your-repo.git`
+1. Clone the repository: `git clone https://github.com/uqyanzie/quizme-test-todo-api.git`
 2. Install dependencies: `npm install`
 
 ## Configuration
@@ -47,7 +47,7 @@ This is a simple todo app that allows users to create, read, update, and delete 
 
 ## Running the Project
 1. Run the project: `npm start`
-2. Access the project in your browser at `http://localhost:${PORT}`
+2. Access the project in your browser at `http://localhost:8080`
 
 ## Running Tests
 1. Run the tests: `npm test`
