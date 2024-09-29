@@ -15,7 +15,7 @@ mongoose.connect(dbConn.url,{
     console.log("Connected to the database");
 }).catch(err => {
     console.error("Cannot connect to the database", err);
-    // process.exit();
+    process.exit();
 });
 
 const app = express();

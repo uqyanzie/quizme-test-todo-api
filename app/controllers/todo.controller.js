@@ -7,7 +7,7 @@ const todoSchema =  Joi.object({
     description: Joi.string(),
 });
 
-// Create and Save a new Todo
+
 const create = async (req, res) => {
     // Validate request
     const { error, value } = todoSchema.validate(req.body);
@@ -18,7 +18,7 @@ const create = async (req, res) => {
 
     const user = await User.findById(req.user.id);
 
-    // Create a Todo
+
     const todo = new Todo({
         title: value.title,
         description: value.description,
@@ -27,7 +27,6 @@ const create = async (req, res) => {
         user: user
     });
 
-    // Save Todo in the database
     try {
         const data = await todo.save();
         res.status(201).json({ success: true, data });
@@ -72,7 +71,6 @@ const findAll = async (req, res) => {
 }
 
 
-// Find a single Todo with an id
 const findOne = async (req, res) => {
     const id = req.params.id;
 
@@ -93,13 +91,11 @@ const findOne = async (req, res) => {
     }
 }
 
-// Update a Todo by the id in the request
 const update = async (req, res) => {
     const id = req.params.id;
 
     const user = await User.findById(req.user.id);
 
-    // Validate request
     const { error, value } = todoSchema.validate(req.body);
 
     if (error) {
@@ -119,7 +115,6 @@ const update = async (req, res) => {
     }
 }
 
-// Delete a Todo with the specified id in the request
 const remove = async (req, res) => {
     const id = req.params.id;
 
