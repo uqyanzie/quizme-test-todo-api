@@ -44,24 +44,33 @@ const findAll = async (req, res) => {
 
         let data;
 
-        let { done, page, limit } = req.query;
+        let { done, page, limit, keyword } = req.query;
 
-        if (done) {
-            data = await Todo.find({ user: user, done: done }).limit(limit * 1).skip((page - 1) * limit).exec();
-        } else {
-            data = await Todo.find({ user: user }).limit(limit * 1).skip((page - 1) * limit).exec();
+        let query = {
+            user: user,
         }
+
+        if (done) query = { ...query,done: done }
+
+        if (keyword) query = {...query, $text: { $search: "/"+keyword+"/", $caseSensitive: false} };
+
+        data = await Todo.find(query).skip((page - 1) * limit).limit(limit);
+
+        const total = await Todo.countDocuments({ user: user });
 
         res.status(200).json({ 
             success: true,
             page: page,
-            limit: limit, 
+            limit: limit,
+            total: total,
+            totalRetrieved: data.length, 
             data : data,
         });
     } catch (err) {
         res.status(500).json({ success: false, message: err.message });
     }
 }
+
 
 // Find a single Todo with an id
 const findOne = async (req, res) => {
