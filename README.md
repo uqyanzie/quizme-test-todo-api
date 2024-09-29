@@ -7,7 +7,7 @@ This is a simple todo app that allows users to create, read, update, and delete 
 
 ## Features
 1. User registration & authentication with email OTP verification
-2. Create, read, update, and delete todo items
+2. Create, read, update, and delete todo items with Joi fields validation
 3. Todo items are private to the user who created them, retrieved using the user's JWT
 4. Todo items filter by done status, search by title, and pagination
 
